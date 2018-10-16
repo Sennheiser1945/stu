@@ -1,0 +1,21 @@
+server:
+  port: 8050
+spring:
+  application:
+    name: zuul
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user:password123@localhost:8761/eureka
+logging:
+  level:
+    root: INFO
+zuul:
+  routes:
+    user-app:
+      path: /user/**
+      serviceId: provider-user
+    sidecar-app:
+      path: /car/**
+      serviceId: sidecar
+    
